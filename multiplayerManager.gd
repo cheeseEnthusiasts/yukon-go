@@ -1,7 +1,7 @@
 extends Node
 
 const port = 8080
-const serverIP = "127.0.0.1"
+var serverIP = "127.0.0.1"
 
 var clicks = 0
 
@@ -37,7 +37,11 @@ func sync(data):
 	button.clicks = data
 
 func _add_player(id: int):
+	var labal = get_tree().root.get_node("Node2D/Label")
+	labal.set_text("player " + str(id) + " joined")
 	print("add player %s" % id)
 
 func _del_player(id: int):
-	print("%s player left" % id)
+	var labal = get_tree().root.get_node("Node2D/Label")
+	labal.set_text("player " + str(id) + " left")
+	print("add player %s" % id)
