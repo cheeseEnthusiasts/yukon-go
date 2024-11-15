@@ -1,12 +1,15 @@
 # Yukon GO!
  
 the best card game to ever be made
+its like really cool and based off a concept by ryder
 
 
-Godot 4.3-stable
+Made with Godot 4.3-stable
+
 
 --- 
-thanks gemeni for this awful explanation
+thanks gemini for this awful explanation
+this probably reflects nothing about the game
 
 **Omega Duel: A High-Stakes Strategic Card Game**
 
