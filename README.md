@@ -1,12 +1,13 @@
 # Yukon GO!
  
-the best card game to ever be made
+the best card game to ever be made  
 its like really cool and based off a concept by ryder
 
 
 Made with Godot 4.3-stable
-
-
+  
+  
+  
 --- 
 thanks gemini for this awful explanation
 this probably reflects nothing about the game
