@@ -22,6 +22,10 @@ func becomeJoin():
 	clientPeer.create_client(serverIP, port)
 	
 	multiplayer.multiplayer_peer = clientPeer
+	
+	var labal = get_tree().root.get_node("Node2D/Label")
+	labal.set_text("joined server probably")
+	
 
 @rpc("any_peer", "call_local", "reliable")
 func sendAndSync(data):
@@ -33,6 +37,8 @@ func sendAndSync(data):
 func sync(data):
 	var button = get_tree().root.get_node("Node2D/Node/Button3")
 	print("client recieved data " + str(data))
+	var labal = get_tree().root.get_node("Node2D/Label")
+	labal.set_text("you recieved data " + str(data))
 	button.set_text(str(data))
 	button.clicks = data
 
