@@ -18,7 +18,8 @@ z_index = 1
 script = ExtResource("1_223m4")
 
 [node name="card" type="Area2D" parent="cards"]
-position = Vector2(152, 882)
+position = Vector2(154, 191)
+collision_priority = 2.0
 metadata/_edit_group_ = true
 
 [node name="cardSprite" type="Sprite2D" parent="cards/card"]
