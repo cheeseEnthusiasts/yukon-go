@@ -9,7 +9,7 @@ func _on_join_button_down() -> void:
 #when the ip textbox is changed
 func _on_text_edit_text_changed() -> void:
 	#okay it looks intimidating but "get_tree().root.get_node("Node2D/ipInput")" is the only freaking way it'll work
-	MultiplayerManager.serverIP = get_tree().root.get_node("Node2D/ipInput").text
+	MultiplayerManager.serverIP = get_tree().root.get_node("Node2D/multiplayerManager/misc/ipInput").text
 
 #on draw card button pressed
 func _on_button_3_pressed() -> void:

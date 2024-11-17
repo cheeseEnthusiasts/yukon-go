@@ -8,34 +8,23 @@
 [node name="multiplayerManager" type="Node" parent="."]
 script = ExtResource("1_byu33")
 
-[node name="joinButton" type="Button" parent="."]
+[node name="buttons" type="Node" parent="multiplayerManager"]
+
+[node name="joinButton" type="Button" parent="multiplayerManager/buttons"]
 offset_left = 195.0
 offset_top = 83.0
 offset_right = 328.0
 offset_bottom = 178.0
 text = "jon"
 
-[node name="cardButton" type="Button" parent="."]
+[node name="cardButton" type="Button" parent="multiplayerManager/buttons"]
 offset_left = 880.0
 offset_top = 114.0
 offset_right = 1049.0
 offset_bottom = 353.0
 text = "draw card"
 
-[node name="drawLabel" type="Label" parent="."]
-offset_left = 922.0
-offset_top = 76.0
-offset_right = 1027.0
-offset_bottom = 99.0
-text = "draw a card"
-
-[node name="informationLabel" type="Label" parent="."]
-offset_left = 25.0
-offset_top = 194.0
-offset_right = 285.0
-offset_bottom = 228.0
-
-[node name="mainButton" type="Button" parent="."]
+[node name="mainButton" type="Button" parent="multiplayerManager/buttons"]
 offset_left = 429.0
 offset_top = 287.0
 offset_right = 696.0
@@ -44,7 +33,38 @@ text = "0"
 script = ExtResource("2_gab56")
 metadata/_edit_use_anchors_ = true
 
-[node name="ipInput" type="TextEdit" parent="."]
+[node name="regenButton" type="Button" parent="multiplayerManager/buttons"]
+offset_left = 841.0
+offset_top = 414.0
+offset_right = 1065.0
+offset_bottom = 477.0
+text = "regenerate deck"
+
+[node name="labels" type="Node" parent="multiplayerManager"]
+
+[node name="drawLabel" type="Label" parent="multiplayerManager/labels"]
+offset_left = 922.0
+offset_top = 76.0
+offset_right = 1027.0
+offset_bottom = 99.0
+text = "draw a card"
+
+[node name="informationLabel" type="Label" parent="multiplayerManager/labels"]
+offset_left = 25.0
+offset_top = 194.0
+offset_right = 285.0
+offset_bottom = 228.0
+
+[node name="deckCardsLabel" type="Label" parent="multiplayerManager/labels"]
+offset_left = 845.0
+offset_top = 486.0
+offset_right = 1066.0
+offset_bottom = 529.0
+text = "cards in deck: not connected"
+
+[node name="misc" type="Node" parent="multiplayerManager"]
+
+[node name="ipInput" type="TextEdit" parent="multiplayerManager/misc"]
 offset_left = 136.0
 offset_top = 17.0
 offset_right = 390.0
@@ -52,16 +72,9 @@ offset_bottom = 72.0
 text = "35.161.170.19"
 placeholder_text = "ip address"
 
-[node name="regenButton" type="Button" parent="."]
-offset_left = 841.0
-offset_top = 414.0
-offset_right = 1065.0
-offset_bottom = 477.0
-text = "regenerate deck"
-
-[connection signal="button_down" from="joinButton" to="multiplayerManager" method="_on_join_button_down"]
-[connection signal="pressed" from="cardButton" to="multiplayerManager" method="_on_button_3_pressed"]
-[connection signal="button_down" from="mainButton" to="mainButton" method="_on_button_down"]
-[connection signal="pressed" from="mainButton" to="mainButton" method="_on_pressed"]
-[connection signal="text_changed" from="ipInput" to="multiplayerManager" method="_on_text_edit_text_changed"]
-[connection signal="pressed" from="regenButton" to="multiplayerManager" method="_on_button_4_pressed"]
+[connection signal="button_down" from="multiplayerManager/buttons/joinButton" to="multiplayerManager" method="_on_join_button_down"]
+[connection signal="pressed" from="multiplayerManager/buttons/cardButton" to="multiplayerManager" method="_on_button_3_pressed"]
+[connection signal="button_down" from="multiplayerManager/buttons/mainButton" to="multiplayerManager/buttons/mainButton" method="_on_button_down"]
+[connection signal="pressed" from="multiplayerManager/buttons/mainButton" to="multiplayerManager/buttons/mainButton" method="_on_pressed"]
+[connection signal="pressed" from="multiplayerManager/buttons/regenButton" to="multiplayerManager" method="_on_button_4_pressed"]
+[connection signal="text_changed" from="multiplayerManager/misc/ipInput" to="multiplayerManager" method="_on_text_edit_text_changed"]
