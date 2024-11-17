@@ -19,6 +19,21 @@ offset_right = 440.0
 offset_bottom = 182.0
 text = "jon"
 
+[node name="Button3" type="Button" parent="."]
+offset_left = 880.0
+offset_top = 114.0
+offset_right = 1049.0
+offset_bottom = 353.0
+text = "draw card"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -38.0
+offset_right = 147.0
+offset_bottom = -15.0
+text = "draw a card"
+
 [node name="Label" type="Label" parent="."]
 offset_left = 137.0
 offset_top = 189.0
@@ -43,8 +58,17 @@ offset_top = 17.0
 offset_right = 390.0
 offset_bottom = 72.0
 
+[node name="Button4" type="Button" parent="."]
+offset_left = 841.0
+offset_top = 414.0
+offset_right = 1065.0
+offset_bottom = 477.0
+text = "regenerate deck"
+
 [connection signal="button_down" from="Button" to="Node" method="_on_host_button_down"]
 [connection signal="button_down" from="Button2" to="Node" method="_on_join_button_down"]
+[connection signal="pressed" from="Button3" to="Node" method="_on_button_3_pressed"]
 [connection signal="button_down" from="Node/Button3" to="Node/Button3" method="_on_button_down"]
 [connection signal="pressed" from="Node/Button3" to="Node/Button3" method="_on_pressed"]
 [connection signal="text_changed" from="TextEdit" to="Node" method="_on_text_edit_text_changed"]
+[connection signal="pressed" from="Button4" to="Node" method="_on_button_4_pressed"]
