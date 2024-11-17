@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="multiplayer-test"
-run/main_scene="res://joinScene.tscn"
+run/main_scene="res://scenes/joinScene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
-MultiplayerManager="*res://multiplayerManager.gd"
+MultiplayerManager="*res://scripts/multiplayerManager.gd"
 
 [rendering]
 
