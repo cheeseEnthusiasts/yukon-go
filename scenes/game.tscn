@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy6nmkeddte8n"]
+[gd_scene load_steps=6 format=3 uid="uid://dy6nmkeddte8n"]
 
 [ext_resource type="Script" path="res://scripts/game/placeCard.gd" id="1_223m4"]
 [ext_resource type="Texture2D" uid="uid://2cyd47uhn0nv" path="res://assets/card_front.jpg" id="1_qlsfw"]
@@ -8,6 +8,9 @@ size = Vector2(199.5, 301)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ke1bp"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qk1n6"]
+size = Vector2(199.5, 301)
+
 [node name="Game" type="Node2D"]
 
 [node name="cards" type="Node2D" parent="."]
@@ -15,7 +18,7 @@ z_index = 1
 script = ExtResource("1_223m4")
 
 [node name="card" type="Area2D" parent="cards"]
-position = Vector2(129, 914)
+position = Vector2(152, 882)
 metadata/_edit_group_ = true
 
 [node name="cardSprite" type="Sprite2D" parent="cards/card"]
@@ -29,7 +32,7 @@ z_index = -1
 script = ExtResource("1_223m4")
 
 [node name="cardspot1" type="Area2D" parent="cardspots"]
-position = Vector2(254, 533)
+position = Vector2(248, 697)
 metadata/_edit_group_ = true
 
 [node name="cardspot1Sprite" type="Sprite2D" parent="cardspots/cardspot1"]
@@ -37,94 +40,103 @@ scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot1CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot1"]
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot2" type="Area2D" parent="cardspots"]
+position = Vector2(490, 702)
+metadata/_edit_group_ = true
 
 [node name="cardspot2Sprite" type="Sprite2D" parent="cardspots/cardspot2"]
-position = Vector2(476, 528)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot2CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot2"]
-position = Vector2(476, 528)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot3" type="Area2D" parent="cardspots"]
+position = Vector2(698, 529)
+metadata/_edit_group_ = true
 
 [node name="cardspot3Sprite" type="Sprite2D" parent="cardspots/cardspot3"]
-position = Vector2(682, 375)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot3CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot3"]
-position = Vector2(682, 375)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot4" type="Area2D" parent="cardspots"]
+position = Vector2(699, 847)
+metadata/_edit_group_ = true
 
 [node name="cardspot4Sprite" type="Sprite2D" parent="cardspots/cardspot4"]
-position = Vector2(685, 692)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot4CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot4"]
-position = Vector2(685, 692)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot5" type="Area2D" parent="cardspots"]
+position = Vector2(912, 697)
+metadata/_edit_group_ = true
 
 [node name="cardspot5Sprite" type="Sprite2D" parent="cardspots/cardspot5"]
-position = Vector2(894, 528)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot5CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot5"]
-position = Vector2(894, 528)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot6" type="Area2D" parent="cardspots"]
+position = Vector2(1342, 509)
+metadata/_edit_group_ = true
 
 [node name="cardspot6Sprite" type="Sprite2D" parent="cardspots/cardspot6"]
-position = Vector2(1115, 528)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot6CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot6"]
-position = Vector2(1115, 528)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot7" type="Area2D" parent="cardspots"]
+position = Vector2(1130, 695)
+metadata/_edit_group_ = true
 
 [node name="cardspot7Sprite" type="Sprite2D" parent="cardspots/cardspot7"]
-position = Vector2(1324, 364)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot7CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot7"]
-position = Vector2(1324, 364)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot8" type="Area2D" parent="cardspots"]
+position = Vector2(1338, 822)
+metadata/_edit_group_ = true
 
 [node name="cardspot8Sprite" type="Sprite2D" parent="cardspots/cardspot8"]
-position = Vector2(1330, 675)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot8CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot8"]
-position = Vector2(1330, 675)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot9" type="Area2D" parent="cardspots"]
+position = Vector2(1569, 675)
+metadata/_edit_group_ = true
 
 [node name="cardspot9Sprite" type="Sprite2D" parent="cardspots/cardspot9"]
-position = Vector2(1551, 528)
 scale = Vector2(200, 300)
 texture = SubResource("PlaceholderTexture2D_ke1bp")
 
 [node name="cardspot9CollisionShape" type="CollisionShape2D" parent="cardspots/cardspot9"]
-position = Vector2(1551, 528)
-shape = SubResource("RectangleShape2D_60mjm")
+shape = SubResource("RectangleShape2D_qk1n6")
 
-[connection signal="input_event" from="cardspots/cardspot1" to="cardspots" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="cards/card" to="cards" method="_on_card_input_event"]
+[connection signal="input_event" from="cardspots/cardspot1" to="cards" method="_on_cardspot_1_input_event"]
+[connection signal="input_event" from="cardspots/cardspot2" to="cards" method="_on_cardspot_2_input_event"]
+[connection signal="input_event" from="cardspots/cardspot3" to="cards" method="_on_cardspot_3_input_event"]
+[connection signal="input_event" from="cardspots/cardspot4" to="cards" method="_on_cardspot_4_input_event"]
+[connection signal="input_event" from="cardspots/cardspot5" to="cards" method="_on_cardspot_5_input_event"]
+[connection signal="input_event" from="cardspots/cardspot6" to="cards" method="_on_cardspot_6_input_event"]
+[connection signal="input_event" from="cardspots/cardspot7" to="cards" method="_on_cardspot_7_input_event"]
+[connection signal="input_event" from="cardspots/cardspot8" to="cards" method="_on_cardspot_8_input_event"]
+[connection signal="input_event" from="cardspots/cardspot9" to="cards" method="_on_cardspot_9_input_event"]
