@@ -21,4 +21,4 @@ func _on_button_3_pressed() -> void:
 
 func _on_button_4_pressed() -> void:
 	print("reset deck")
-	MultiplayerManager.newDeck.rpc_id(1)
+	MultiplayerManager.regenDeck.rpc_id(1)
