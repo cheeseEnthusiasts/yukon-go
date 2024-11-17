@@ -10,7 +10,6 @@ var clicks = 0
 
 
 
-
 #functions
 
 #sets up a client
@@ -25,23 +24,6 @@ func becomeJoin():
 	labal.set_text("if you're seeing this something went wrong, make sure the ip address has no spaces or anything")
 	
 	print("joining")
-
-#function that gets called when you are hosting and a player joins
-func _add_player(id: int):
-	var labal = get_tree().root.get_node("Node2D/informationLabel")
-	
-	labal.set_text("player " + str(id) + " joined")
-	
-	print("add player %s" % id)
-
-#function that gets called when you are hosting and a player leaves
-func _del_player(id: int):
-	var labal = get_tree().root.get_node("Node2D/informationLabel")
-	
-	labal.set_text("player " + str(id) + " left")
-	
-	print("add player %s" % id)
-
 
 
 
