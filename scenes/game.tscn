@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy6nmkeddte8n"]
+[gd_scene load_steps=7 format=3 uid="uid://dy6nmkeddte8n"]
 
 [ext_resource type="Script" path="res://scripts/game/placeCard.gd" id="1_223m4"]
 [ext_resource type="Texture2D" uid="uid://2cyd47uhn0nv" path="res://assets/card_front.jpg" id="1_qlsfw"]
+[ext_resource type="Texture2D" uid="uid://du53qfxc212bw" path="res://assets/card_back.jpg" id="3_pjo5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_60mjm"]
 size = Vector2(199.5, 301)
@@ -18,7 +19,7 @@ z_index = 1
 script = ExtResource("1_223m4")
 
 [node name="card" type="Area2D" parent="cards"]
-position = Vector2(154, 191)
+position = Vector2(94, 931)
 collision_priority = 2.0
 metadata/_edit_group_ = true
 
@@ -28,12 +29,52 @@ texture = ExtResource("1_qlsfw")
 [node name="cardCollisionShape" type="CollisionShape2D" parent="cards/card"]
 shape = SubResource("RectangleShape2D_60mjm")
 
+[node name="opponentcards" type="Node2D" parent="."]
+position = Vector2(290, -328)
+scale = Vector2(0.734821, 0.734821)
+
+[node name="cardspot1Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(234, 792)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot2Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(476, 797)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot3Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(684, 600)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot4Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(680, 914)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot5Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(903, 797)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot6Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(1328, 604)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot7Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(1116, 790)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot8Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(1324, 917)
+texture = ExtResource("3_pjo5k")
+
+[node name="cardspot9Sprite" type="Sprite2D" parent="opponentcards"]
+position = Vector2(1555, 770)
+texture = ExtResource("3_pjo5k")
+
 [node name="cardspots" type="Node2D" parent="."]
 z_index = -1
 script = ExtResource("1_223m4")
 
 [node name="cardspot1" type="Area2D" parent="cardspots"]
-position = Vector2(248, 697)
+position = Vector2(234, 792)
 metadata/_edit_group_ = true
 
 [node name="cardspot1Sprite" type="Sprite2D" parent="cardspots/cardspot1"]
@@ -44,7 +85,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot2" type="Area2D" parent="cardspots"]
-position = Vector2(490, 702)
+position = Vector2(476, 797)
 metadata/_edit_group_ = true
 
 [node name="cardspot2Sprite" type="Sprite2D" parent="cardspots/cardspot2"]
@@ -55,7 +96,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot3" type="Area2D" parent="cardspots"]
-position = Vector2(698, 529)
+position = Vector2(684, 600)
 metadata/_edit_group_ = true
 
 [node name="cardspot3Sprite" type="Sprite2D" parent="cardspots/cardspot3"]
@@ -66,7 +107,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot4" type="Area2D" parent="cardspots"]
-position = Vector2(699, 847)
+position = Vector2(680, 914)
 metadata/_edit_group_ = true
 
 [node name="cardspot4Sprite" type="Sprite2D" parent="cardspots/cardspot4"]
@@ -77,7 +118,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot5" type="Area2D" parent="cardspots"]
-position = Vector2(912, 697)
+position = Vector2(903, 797)
 metadata/_edit_group_ = true
 
 [node name="cardspot5Sprite" type="Sprite2D" parent="cardspots/cardspot5"]
@@ -88,7 +129,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot6" type="Area2D" parent="cardspots"]
-position = Vector2(1342, 509)
+position = Vector2(1328, 604)
 metadata/_edit_group_ = true
 
 [node name="cardspot6Sprite" type="Sprite2D" parent="cardspots/cardspot6"]
@@ -99,7 +140,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot7" type="Area2D" parent="cardspots"]
-position = Vector2(1130, 695)
+position = Vector2(1116, 790)
 metadata/_edit_group_ = true
 
 [node name="cardspot7Sprite" type="Sprite2D" parent="cardspots/cardspot7"]
@@ -110,7 +151,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot8" type="Area2D" parent="cardspots"]
-position = Vector2(1338, 822)
+position = Vector2(1324, 917)
 metadata/_edit_group_ = true
 
 [node name="cardspot8Sprite" type="Sprite2D" parent="cardspots/cardspot8"]
@@ -121,7 +162,7 @@ texture = SubResource("PlaceholderTexture2D_ke1bp")
 shape = SubResource("RectangleShape2D_qk1n6")
 
 [node name="cardspot9" type="Area2D" parent="cardspots"]
-position = Vector2(1569, 675)
+position = Vector2(1555, 770)
 metadata/_edit_group_ = true
 
 [node name="cardspot9Sprite" type="Sprite2D" parent="cardspots/cardspot9"]
