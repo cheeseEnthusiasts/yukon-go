@@ -46,7 +46,7 @@ func finish_drag():
 	card_being_dragged.scale = Vector2(1.05, 1.05)
 
 	# the following functions check if you let go of a card, and then move directly onto another card and start dragging it
-	# this is just to prevent visual errors mostly
+	# this is mostly just to prevent visual errors
 	var spot = raycast_check_for_card_slot()
 	if spot and not spot.card_in_slot:
 		card_being_dragged.position = spot.position
