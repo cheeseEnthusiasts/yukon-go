@@ -12,21 +12,6 @@ script = ExtResource("1_y0u4g")
 [node name="Card" parent="CardManager" instance=ExtResource("2_6o2t0")]
 position = Vector2(68, 95)
 
-[node name="Card2" parent="CardManager" instance=ExtResource("2_6o2t0")]
-position = Vector2(68, 95)
-
-[node name="Card3" parent="CardManager" instance=ExtResource("2_6o2t0")]
-position = Vector2(68, 95)
-
-[node name="Card4" parent="CardManager" instance=ExtResource("2_6o2t0")]
-position = Vector2(68, 95)
-
-[node name="Card5" parent="CardManager" instance=ExtResource("2_6o2t0")]
-position = Vector2(68, 95)
-
-[node name="Card6" parent="CardManager" instance=ExtResource("2_6o2t0")]
-position = Vector2(68, 95)
-
 [node name="Slots" type="Node2D" parent="."]
 
 [node name="CardSlot" parent="Slots" instance=ExtResource("3_tc0cj")]
