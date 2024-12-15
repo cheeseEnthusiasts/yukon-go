@@ -69,3 +69,7 @@ position = Vector2(1364, 251)
 
 [node name="Hand" type="Node2D" parent="."]
 script = ExtResource("3_lc28y")
+
+[node name="CardPreview" type="Sprite2D" parent="."]
+position = Vector2(235, 514)
+scale = Vector2(2.5, 2.5)

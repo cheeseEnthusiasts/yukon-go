@@ -6,10 +6,11 @@ const COLLISION_MASK_SLOT = 2
 var screen_size
 var card_being_dragged
 var is_hovering_on_card
-
+var card_preview
 
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	card_preview = $"../CardPreview"
 
 
 func _process(_delta: float) -> void:
@@ -42,10 +43,13 @@ func _input(event):
 
 # Card dragging functions
 func start_drag(card):
-	card_being_dragged = card
-	card.scale = Vector2(1, 1)
+	if not card.in_slot:
+		card_preview.texture = null
+		card_being_dragged = card
+		card.scale = Vector2(1, 1)
 
 func finish_drag():
+	var p_hand = $"../Hand"
 	card_being_dragged.scale = Vector2(1.05, 1.05)
 
 	# the following functions check if you let go of a card, and then move directly onto another card and start dragging it
@@ -53,8 +57,14 @@ func finish_drag():
 	var spot = raycast_check_for_card_slot()
 	if spot and not spot.card_in_slot and not spot.get_parent().name == "OpponentSlots":
 		card_being_dragged.position = spot.position
-		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
+		card_being_dragged.in_slot = true
 		spot.card_in_slot = true
+		p_hand.hand.erase(card_being_dragged)
+		p_hand.update_hand_position()
+		
+	else:
+		p_hand.update_hand_position()
+		
 	card_being_dragged = null
 
 
@@ -73,10 +83,12 @@ func on_hovered_off(card):
 		is_hovering_on_card = false
 
 func highlight_card(card, hovered):
-	if hovered:
+	if hovered and not card_being_dragged:
+		card_preview.texture = card.get_node('CardImage').texture
 		card.scale = Vector2(1.05, 1.05)
 		card.z_index = 2
 	else:
+		card_preview.texture = null
 		card.scale = Vector2(1, 1)
 		card.z_index = 1
 

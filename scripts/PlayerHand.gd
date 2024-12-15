@@ -19,7 +19,8 @@ func update_hand_position():
 	for i in range(hand.size()):
 		var new_pos = Vector2(calculate_position(i), HAND_Y)
 		var card = hand[i]
-		card.position = new_pos
+		if not card.in_slot:
+			card.position = new_pos
 		
 
 func calculate_position(index):
