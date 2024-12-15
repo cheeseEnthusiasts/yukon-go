@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func add_card(card):
-	hand.insert(0, card)
+	hand.insert(hand.size(), card)
 	update_hand_position()
 
 func update_hand_position():
@@ -20,7 +20,9 @@ func update_hand_position():
 		var new_pos = Vector2(calculate_position(i), HAND_Y)
 		var card = hand[i]
 		if not card.in_slot:
-			card.position = new_pos
+			var tween = get_tree().create_tween()
+			tween.tween_property(card, "position", new_pos, 0.05)
+
 		
 
 func calculate_position(index):

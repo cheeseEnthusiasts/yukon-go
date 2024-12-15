@@ -8,9 +8,13 @@ var card_being_dragged
 var is_hovering_on_card
 var card_preview
 
+var player
+
+
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	card_preview = $"../CardPreview"
+	player = $'../Player'
 
 
 func _process(_delta: float) -> void:
@@ -19,7 +23,8 @@ func _process(_delta: float) -> void:
 	# if the value given is greater or less than the min/max, it will clamp it to those values so it cannot move farther
 	if card_being_dragged:
 		var mouse_pos = get_global_mouse_position()
-		card_being_dragged.position = Vector2(clamp(mouse_pos.x, 0, screen_size.x), clamp(mouse_pos.y, 0, screen_size.y))
+		var tween = get_tree().create_tween()
+		tween.tween_property(card_being_dragged, "position", Vector2(clamp(mouse_pos.x, 0, screen_size.x), clamp(mouse_pos.y, 0, screen_size.y)), 0.02)
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -32,13 +37,7 @@ func _input(event):
 				finish_drag()
 
 	if event.is_action_pressed('ENTER'):
-		var path = load("res://scenes/card.tscn")
-		var c = path.instantiate()
-		add_child(c)
-		c.name = "Card"
-		var hand = $'../Hand'
-		hand.add_card(c)
-
+		player.construct_card(5, 0, false)
 
 
 # Card dragging functions
@@ -46,26 +45,34 @@ func start_drag(card):
 	if not card.in_slot:
 		card_preview.texture = null
 		card_being_dragged = card
-		card.scale = Vector2(1, 1)
+		var tween = get_tree().create_tween()
+		tween.tween_property(card, "scale", Vector2(1, 1), 0.05)
 
 func finish_drag():
 	var p_hand = $"../Hand"
-	card_being_dragged.scale = Vector2(1.05, 1.05)
+	var tween = get_tree().create_tween()
+	tween.tween_property(card_being_dragged, "scale", Vector2(1.05, 1.05), 0.05)
+	card_being_dragged.z_index = 1
 
 	# the following functions check if you let go of a card, and then move directly onto another card and start dragging it
 	# this is mostly just to prevent visual errors
 	var spot = raycast_check_for_card_slot()
 	if spot and not spot.card_in_slot and not spot.get_parent().name == "OpponentSlots":
-		card_being_dragged.position = spot.position
-		card_being_dragged.in_slot = true
-		spot.card_in_slot = true
-		p_hand.hand.erase(card_being_dragged)
-		p_hand.update_hand_position()
+		place_card_in_spot(spot, p_hand)
 		
 	else:
 		p_hand.update_hand_position()
 		
 	card_being_dragged = null
+
+func place_card_in_spot(spot, p_hand):
+	var tween = get_tree().create_tween()
+	tween.tween_property(card_being_dragged, "position", spot.position, 0.05)
+	card_being_dragged.in_slot = true
+	spot.card_in_slot = true
+	p_hand.hand.erase(card_being_dragged)
+	p_hand.update_hand_position()
+	player.energy -= card_being_dragged.cost
 
 
 # Card hover effect functions
@@ -85,11 +92,13 @@ func on_hovered_off(card):
 func highlight_card(card, hovered):
 	if hovered and not card_being_dragged:
 		card_preview.texture = card.get_node('CardImage').texture
-		card.scale = Vector2(1.05, 1.05)
+		var tween = get_tree().create_tween()
+		tween.tween_property(card, "scale", Vector2(1.05, 1.05), 0.05)
 		card.z_index = 2
 	else:
 		card_preview.texture = null
-		card.scale = Vector2(1, 1)
+		var tween = get_tree().create_tween()
+		tween.tween_property(card, "scale", Vector2(1, 1), 0.05)
 		card.z_index = 1
 
 
