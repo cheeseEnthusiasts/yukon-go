@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bac0co0u3odu6"]
 
-[ext_resource type="Texture2D" uid="uid://cqoqm51c6mso2" path="res://assets/cards/invalid.png" id="1_3n630"]
+[ext_resource type="Texture2D" uid="uid://dw772hc3618i" path="res://assets/cards/invalid.png" id="1_3n630"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_t4u3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e1jli"]
-size = Vector2(128, 192)
+size = Vector2(142, 210)
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_t4u3q")

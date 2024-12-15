@@ -33,8 +33,11 @@ func _input(event):
 	if event.is_action_pressed('ENTER'):
 		var path = load("res://scenes/card.tscn")
 		var c = path.instantiate()
-		c.name = "Card"
 		add_child(c)
+		c.name = "Card"
+		var hand = $'../Hand'
+		hand.add_card(c)
+
 
 
 # Card dragging functions
@@ -48,7 +51,7 @@ func finish_drag():
 	# the following functions check if you let go of a card, and then move directly onto another card and start dragging it
 	# this is mostly just to prevent visual errors
 	var spot = raycast_check_for_card_slot()
-	if spot and not spot.card_in_slot:
+	if spot and not spot.card_in_slot and not spot.get_parent().name == "OpponentSlots":
 		card_being_dragged.position = spot.position
 		card_being_dragged.get_node("Area2D/CollisionShape2D").disabled = true
 		spot.card_in_slot = true
@@ -76,7 +79,6 @@ func highlight_card(card, hovered):
 	else:
 		card.scale = Vector2(1, 1)
 		card.z_index = 1
-
 
 
 # Checks if the mouse is over a Card (or any element with a collision mask equal to COLLISION_MASK_CARD), and returns if it if there is
