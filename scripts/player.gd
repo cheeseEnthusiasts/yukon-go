@@ -18,7 +18,9 @@ func construct_card(cost, dmg, qp: bool):
 	c.position = Vector2(get_viewport().size.x / 2, 1080)
 	c.name = "Card"
 	hand.add_card(c)
+	
 
 	c.cost = cost
 	c.dmg = dmg
 	c.quickplay = qp
+	return c

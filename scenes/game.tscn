@@ -15,29 +15,37 @@ script = ExtResource("1_y0u4g")
 [node name="CMP" parent="Slots" instance=ExtResource("3_tc0cj")]
 position = Vector2(351, 667)
 
-[node name="CardSlot9" parent="Slots" instance=ExtResource("3_tc0cj")]
-position = Vector2(627, 715)
-
 [node name="CardSlot2" parent="Slots" instance=ExtResource("3_tc0cj")]
-position = Vector2(774, 841)
+position = Vector2(774, 842)
+id = 1
 
 [node name="CardSlot3" parent="Slots" instance=ExtResource("3_tc0cj")]
 position = Vector2(774, 625)
+id = 2
 
 [node name="CardSlot4" parent="Slots" instance=ExtResource("3_tc0cj")]
 position = Vector2(922, 715)
+id = 3
 
 [node name="CardSlot5" parent="Slots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1069, 715)
+id = 4
 
 [node name="CardSlot6" parent="Slots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1216, 625)
+id = 5
 
 [node name="CardSlot7" parent="Slots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1216, 842)
+id = 6
 
 [node name="CardSlot8" parent="Slots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1364, 715)
+id = 7
+
+[node name="CardSlot9" parent="Slots" instance=ExtResource("3_tc0cj")]
+position = Vector2(627, 715)
+id = 8
 
 [node name="OpponentSlots" type="Node2D" parent="."]
 
@@ -46,27 +54,35 @@ position = Vector2(351, 299)
 
 [node name="CardSlot9" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(627, 251)
+id = 1
 
 [node name="CardSlot2" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(774, 377)
+id = 2
 
 [node name="CardSlot3" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(774, 161)
+id = 3
 
 [node name="CardSlot4" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(922, 251)
+id = 4
 
 [node name="CardSlot5" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1069, 251)
+id = 5
 
 [node name="CardSlot6" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1216, 161)
+id = 6
 
 [node name="CardSlot7" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1216, 378)
+id = 7
 
 [node name="CardSlot8" parent="OpponentSlots" instance=ExtResource("3_tc0cj")]
 position = Vector2(1364, 251)
+id = 8
 
 [node name="Hand" type="Node2D" parent="."]
 script = ExtResource("3_lc28y")

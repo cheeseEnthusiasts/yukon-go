@@ -15,6 +15,7 @@ func _ready() -> void:
 	screen_size = get_viewport_rect().size
 	card_preview = $"../CardPreview"
 	player = $'../Player'
+	MultiplayerManager.join()
 
 
 func _process(_delta: float) -> void:
@@ -58,22 +59,32 @@ func finish_drag():
 	# this is mostly just to prevent visual errors
 	var spot = raycast_check_for_card_slot()
 	if spot and not spot.card_in_slot and not spot.get_parent().name == "OpponentSlots":
-		place_card_in_spot(spot, p_hand)
+		place_card_in_spot(spot, p_hand, card_being_dragged)
 		
 	else:
 		p_hand.update_hand_position()
 		
 	card_being_dragged = null
 
-func place_card_in_spot(spot, p_hand):
+func place_card_in_spot(spot, p_hand, card):
 	var tween = get_tree().create_tween()
-	tween.tween_property(card_being_dragged, "position", spot.position, 0.05)
-	card_being_dragged.in_slot = true
+	tween.tween_property(card, "position", spot.position, 0.05)
+	card.in_slot = true
 	spot.card_in_slot = true
-	p_hand.hand.erase(card_being_dragged)
+	p_hand.hand.erase(card)
 	p_hand.update_hand_position()
-	player.energy -= card_being_dragged.cost
+	player.energy -= card.cost
+	MultiplayerManager.update_cards.rpc_id(1, MultiplayerManager.client_id, [card.cost, card.dmg], spot.id)
 
+func place_card_in_opponent_spot(spot, card):
+	var p_hand = $"../Hand"
+	p_hand.hand.erase(card)
+	print('received ' + str(card, spot))
+	card.position = spot.position
+	print('placed card at ', spot.position, ". card is now at ", card.position)
+	card.in_slot = true
+	spot.card_in_slot = true
+	
 
 # Card hover effect functions
 func on_hovered_over_card(card):
